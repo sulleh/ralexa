@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "ralexa"
   gem.require_paths = ["lib"]
   gem.version       = Ralexa::VERSION
+
+  gem.add_development_dependency "minitest"
 end
