@@ -15,6 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Ralexa::VERSION
 
+  gem.add_runtime_dependency "addressable"
+
   gem.add_development_dependency "minitest"
   gem.add_development_dependency "rake"
 end
