@@ -1,12 +1,15 @@
-# Ralexa
+Ralexa
+======
 
-TODO: Write a gem description
+Ruby client for Amazon Alexa APIs.
 
-## Installation
+
+Installation
+------------
 
 Add this line to your application's Gemfile:
 
-    gem 'ralexa'
+    gem "ralexa"
 
 And then execute:
 
@@ -16,14 +19,23 @@ Or install it yourself as:
 
     $ gem install ralexa
 
-## Usage
+
+Usage
+-----
 
 TODO: Write usage instructions here
 
-## Contributing
+
+Contributing
+------------
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+License
+-------
+
+(c) 2012 Flippa, The MIT License.
