@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Ralexa::VERSION
 
   gem.add_runtime_dependency "addressable"
+  gem.add_runtime_dependency "nokogiri"
 
   gem.add_development_dependency "minitest"
   gem.add_development_dependency "rake"

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<aws:TopSitesResponse xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/"><aws:Response xmlns:aws="http://ats.amazonaws.com/doc/2005-11-21"><aws:OperationRequest><aws:RequestId>a914be78-f2cf-71be-97dd-6e51501050b2</aws:RequestId></aws:OperationRequest><aws:TopSitesResult><aws:Alexa>
+
+  <aws:TopSites>
+    <aws:Countries>
+      <aws:Country>
+        <aws:Name>Australia</aws:Name>
+        <aws:Code>AU</aws:Code>
+        <aws:TotalSites>42920</aws:TotalSites>
+        <aws:PageViews>1.074</aws:PageViews>
+        <aws:Users>1.148</aws:Users>
+      </aws:Country>
+      <aws:Country>
+        <aws:Name>United States</aws:Name>
+        <aws:Code>US</aws:Code>
+        <aws:TotalSites>484842</aws:TotalSites>
+        <aws:PageViews>18.023</aws:PageViews>
+        <aws:Users>18.998</aws:Users>
+      </aws:Country>
+    </aws:Countries>
+  </aws:TopSites>
+</aws:Alexa></aws:TopSitesResult><aws:ResponseStatus xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/"><aws:StatusCode>Success</aws:StatusCode></aws:ResponseStatus></aws:Response></aws:TopSitesResponse>
