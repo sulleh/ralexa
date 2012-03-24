@@ -12,17 +12,15 @@ module Ralexa
 
     def global(parameters = {})
       defaults = {"ResponseGroup" => "Country"}
-      doc = dispatch(defaults.merge(parameters))
-      xpath = "//TopSites/Country/Sites"
-      doc.at(xpath).element_children.map do |node|
-        Site.new(
-          node.at("DataUrl").text,
-          node.at("Country/Rank").text.to_i,
-          node.at("Country/Reach/PerMillion").text.to_i * 1_000_000,
-          node.at("Country/PageViews/PerMillion").text.to_f * 1_000_000,
-          node.at("Country/PageViews/PerUser").text.to_f
-        )
-      end
+      top_sites_from_document(dispatch(defaults.merge(parameters)))
+    end
+
+    def country(code, parameters = {})
+      defaults = {
+        "ResponseGroup" => "Country",
+        "CountryCode" => code.to_s.upcase,
+      }
+      top_sites_from_document(dispatch(defaults.merge(parameters)))
     end
 
     def list_countries(parameters = {})
@@ -48,6 +46,19 @@ module Ralexa
       defaults = {"Action" => "TopSites"}
       response = @client.get(host, path, defaults.merge(options))
       Nokogiri::XML.parse(response).remove_namespaces!
+    end
+
+    def top_sites_from_document(document)
+      xpath = "//TopSites/Country/Sites"
+      document.at(xpath).element_children.map do |node|
+        Site.new(
+          node.at("DataUrl").text,
+          node.at("Country/Rank").text.to_i,
+          node.at("Country/Reach/PerMillion").text.to_i * 1_000_000,
+          (node.at("Country/PageViews/PerMillion").text.to_f * 1_000_000).to_i,
+          node.at("Country/PageViews/PerUser").text.to_f
+        )
+      end
     end
 
     Country = Struct.new(:name, :code, :total_sites, :page_views, :users)

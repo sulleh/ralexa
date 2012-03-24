@@ -17,23 +17,23 @@ module Ralexa
         client.expect :get, fixture("global.xml"),
           ["ats.amazonaws.com", "/", expect_parameters]
       end
-
       it "fetches, parses and returns top sites" do
-        sites = top_sites.global
-        sites.size.must_equal 2
-        w, b = sites
+        top_sites_match_fixture(top_sites.global)
+      end
+    end
 
-        w.url.must_equal "wikipedia.org"
-        w.rank.must_equal 6
-        w.reach.must_equal 143_000_000_000
-        w.page_views.must_equal 5_219_000_000
-        w.page_views_per_user.must_equal 3.88
-
-        b.url.must_equal "bbc.co.uk"
-        b.rank.must_equal 52
-        b.reach.must_equal 20_540_000_000
-        b.page_views.must_equal 898_500_000
-        b.page_views_per_user.must_equal 4.65
+    describe "#country" do
+      before do
+        expect_parameters = {
+          "Action" => "TopSites",
+          "ResponseGroup" => "Country",
+          "CountryCode" => "AU",
+        }
+        client.expect :get, fixture("global.xml"),
+          ["ats.amazonaws.com", "/", expect_parameters]
+      end
+      it "fetches, parses and returns top sites for specified country" do
+        top_sites_match_fixture(top_sites.country("AU"))
       end
     end
 
@@ -64,6 +64,23 @@ module Ralexa
         a.page_views.must_equal 1_074_000
         a.users.must_equal 1_148_000
       end
+    end
+
+    def top_sites_match_fixture(sites)
+        sites.size.must_equal 2
+        w, b = sites
+
+        w.url.must_equal "wikipedia.org"
+        w.rank.must_equal 6
+        w.reach.must_equal 143_000_000_000
+        w.page_views.must_equal 5_219_000_000
+        w.page_views_per_user.must_equal 3.88
+
+        b.url.must_equal "bbc.co.uk"
+        b.rank.must_equal 52
+        b.reach.must_equal 20_540_000_000
+        b.page_views.must_equal 898_500_000
+        b.page_views_per_user.must_equal 4.65
     end
 
   end
