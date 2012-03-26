@@ -1,6 +1,5 @@
 %w{
   abstract_xml_service
-  awis
   canonicalized_query_string
   client
   session
