@@ -20,19 +20,23 @@ module Ralexa
 
     def sign_uri(original_uri)
       original_uri.dup.tap do |uri|
-        uri.query_values = uri.query_values.merge(
+        add_query_values(uri,
           "AWSAccessKeyId" => @access_key_id,
           "Timestamp" => timestamp,
           "SignatureVersion" => SIGNATURE_VERSION.to_s,
           "SignatureMethod" => signature_method,
         )
-        uri.query_values = uri.query_values.merge(
+        add_query_values(uri,
           "Signature" => signature(uri)
         )
       end
     end
 
     private
+
+    def add_query_values(uri, parameters)
+      uri.query_values = (uri.query_values || {}).merge(parameters)
+    end
 
     def string_to_sign(uri)
       [
