@@ -3,6 +3,7 @@ require "ralexa/abstract_xml_service"
 module Ralexa
   class TopSites < AbstractXmlService
 
+    # A global list of top sites.
     def global(params = {})
       top_sites_from_document(dispatch(
         {"ResponseGroup" => "Country"},
@@ -10,6 +11,7 @@ module Ralexa
       ))
     end
 
+    # Top sites for the specified two letter country code.
     def country(code, params = {})
       top_sites_from_document(dispatch(
         {"ResponseGroup" => "Country", "CountryCode" => code.to_s.upcase},
@@ -17,6 +19,7 @@ module Ralexa
       ))
     end
 
+    # All countries that have Alexa top sites.
     def list_countries(params = {})
       dispatch(
         {"ResponseGroup" => "ListCountries"},
