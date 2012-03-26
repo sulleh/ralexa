@@ -35,25 +35,25 @@ Usage Examples
 --------------
 
 ```ruby
-top_sites = Ralexa::TopSites.new(
-  Ralexa::Client.new("aws_access_key_id", "aws_secret_access_key")
-)
+
+# grab a Ralexa::Session instance to hold your credentials.
+session = Ralexa.session("aws_access_key_id", "aws_secret_access_key")
 
 # all countries
-countries = top_sites.list_countries
+countries = session.top_sites.list_countries
 
 # global top sites
-global = top_sites.global
+global = session.top_sites.global
 
 # per-country top sites
 first_by_country = {}
 countries.each do |c|
-  first_by_country[c.name] = top_sites.country(c.code).first.url
+  first_by_country[c.name] = session.top_sites.country(c.code).first.url
 end
 
 # individual country lookup
 puts "Top Australian Sites"
-top_sites.country("AU").each do |s|
+session.top_sites.country("AU").each do |s|
   puts "#{s.url} (#{s.page_views} pageviews)"
 end
 
