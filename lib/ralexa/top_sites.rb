@@ -1,37 +1,36 @@
-require "ralexa/abstract_xml_service"
+require "ralexa/abstract_service"
+require "ralexa/lazy_collection"
 
 module Ralexa
-  class TopSites < AbstractXmlService
+  class TopSites < AbstractService
 
     # A global list of top sites.
     def global(params = {})
-      top_sites_from_document(dispatch(
-        {"ResponseGroup" => "Country"},
-        params
-      ))
+      collection({"ResponseGroup" => "Country"}, params, &top_sites_parser)
     end
 
     # Top sites for the specified two letter country code.
     def country(code, params = {})
-      top_sites_from_document(dispatch(
+      collection(
         {"ResponseGroup" => "Country", "CountryCode" => code.to_s.upcase},
-        params
-      ))
+        params,
+        &top_sites_parser
+      )
     end
 
     # All countries that have Alexa top sites.
     def list_countries(params = {})
-      dispatch(
-        {"ResponseGroup" => "ListCountries"},
-        params
-      ).at("//TopSitesResult/Alexa/TopSites/Countries").elements.map do |node|
-        Country.new(
-          node.at("Name").text,
-          node.at("Code").text,
-          node.at("TotalSites").text.to_i,
-          node.at("PageViews").text.to_f * 1_000_000,
-          node.at("Users").text.to_f * 1_000_000,
-        )
+      collection({"ResponseGroup" => "ListCountries"}, params) do |document|
+        path = "//TopSitesResult/Alexa/TopSites/Countries"
+        document.at(path).elements.map do |node|
+          Country.new(
+            node.at("Name").text,
+            node.at("Code").text,
+            node.at("TotalSites").text.to_i,
+            node.at("PageViews").text.to_f * 1_000_000,
+            node.at("Users").text.to_f * 1_000_000,
+          )
+        end
       end
     end
 
@@ -41,16 +40,18 @@ module Ralexa
     def path; "/" end
     def default_params; {"Action" => "TopSites"} end
 
-    def top_sites_from_document(document)
-      document.at("//TopSites/Country/Sites").elements.map do |node|
-        Site.new(
-          node.at("DataUrl").text,
-          node.at("Country/Rank").text.to_i,
-          node.at("Country/Reach/PerMillion").text.to_i * 1_000_000,
-          (node.at("Country/PageViews/PerMillion").text.to_f * 1_000_000).to_i,
-          node.at("Country/PageViews/PerUser").text.to_f
-        )
-      end
+    def top_sites_parser
+      ->(document){
+        document.at("//TopSites/Country/Sites").elements.map do |node|
+          Site.new(
+            node.at("DataUrl").text,
+            node.at("Country/Rank").text.to_i,
+            node.at("Country/Reach/PerMillion").text.to_i * 1_000_000,
+            (node.at("Country/PageViews/PerMillion").text.to_f * 1_000_000).to_i,
+            node.at("Country/PageViews/PerUser").text.to_f
+          )
+        end
+      }
     end
 
     Country = Struct.new(:name, :code, :total_sites, :page_views, :users)

@@ -1,5 +1,5 @@
 %w{
-  abstract_xml_service
+  abstract_service
   canonicalized_query_string
   client
   session
