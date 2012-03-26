@@ -1,14 +1,24 @@
 module Ralexa
   class TopSites < AbstractService
 
+    PER_PAGE = 100
+
     # A global list of top sites.
-    def global(params = {})
-      collection({"ResponseGroup" => "Country"}, params, &top_sites_parser)
+    def global(limit, params = {})
+      paginating_collection(
+        limit,
+        PER_PAGE,
+        {"ResponseGroup" => "Country"},
+        params,
+        &top_sites_parser
+      )
     end
 
     # Top sites for the specified two letter country code.
-    def country(code, params = {})
-      collection(
+    def country(code, limit, params = {})
+      paginating_collection(
+        limit,
+        PER_PAGE,
         {"ResponseGroup" => "Country", "CountryCode" => code.to_s.upcase},
         params,
         &top_sites_parser

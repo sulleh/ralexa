@@ -41,19 +41,20 @@ session = Ralexa.session("aws_access_key_id", "aws_secret_access_key")
 
 # all countries
 countries = session.top_sites.list_countries
+p countries.map(&:name)
 
-# global top sites
-global = session.top_sites.global
+# global top 250 sites
+global = session.top_sites.global(250)
 
 # per-country top sites
 first_by_country = {}
 countries.each do |c|
-  first_by_country[c.name] = session.top_sites.country(c.code).first.url
+  first_by_country[c.name] = session.top_sites.country(c.code, 1).first.url
 end
 
 # individual country lookup
-puts "Top Australian Sites"
-session.top_sites.country("AU").each do |s|
+puts "Top Ten Australian Sites"
+session.top_sites.country("AU", 10).each do |s|
   puts "#{s.url} (#{s.page_views} pageviews)"
 end
 

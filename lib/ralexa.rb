@@ -3,6 +3,7 @@
   canonicalized_query_string
   client
   lazy_collection
+  paginating_collection
   paginator
   session
   top_sites

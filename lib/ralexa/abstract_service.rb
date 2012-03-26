@@ -9,7 +9,25 @@ module Ralexa
 
     # A lazy collection which fetches records on demand.
     def collection(*params, &parser)
-      LazyCollection.new(@client, host, path, merged_params(*params), &parser)
+      LazyCollection.new(
+        @client,
+        host,
+        path,
+        merged_params(*params),
+        &parser
+      )
+    end
+
+    def paginating_collection(limit, per_page, *params, &parser)
+      PaginatingCollection.new(
+        @client,
+        host,
+        path,
+        merged_params(*params),
+        limit,
+        per_page,
+        &parser
+      )
     end
 
     # A hash of the provided params hashes merged into the default_params.

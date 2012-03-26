@@ -7,31 +7,75 @@ module Ralexa
     let(:client) { MiniTest::Mock.new }
 
     describe "#global" do
-      before do
-        expect_parameters = {
+      def expected_params(start, count)
+        {
           "Action" => "TopSites",
           "ResponseGroup" => "Country",
+          "Start" => start,
+          "Count" => count,
         }
-        client.expect :get, fixture("global.xml"),
-          ["ats.amazonaws.com", "/", expect_parameters]
       end
-      it "fetches, parses and returns top sites" do
-        top_sites_match_fixture(top_sites.global)
+      describe "requesting ten sites" do
+        before do
+          client.expect :get, fixture("global-top10.xml"),
+            ["ats.amazonaws.com", "/", expected_params(1, 10)]
+        end
+        it "fetches, parses and returns top ten sites" do
+          sites = top_sites.global(10).to_a
+          sites.size.must_equal 10
+          [ sites.first.rank, sites.last.rank ].must_equal [ 1, 10 ]
+
+          g = sites.first
+          g.url.must_equal "google.com"
+          g.rank.must_equal 1
+          g.reach.must_equal 501_800_000_000
+          g.page_views.must_equal 54_926_000_000
+          g.page_views_per_user.must_equal 11.63
+        end
+      end
+      describe "requesting 150 sites" do
+        before do
+          client.expect :get, fixture("global-page1.xml"),
+            ["ats.amazonaws.com", "/", expected_params(1, 100)]
+          client.expect :get, fixture("global-page2.xml"),
+            ["ats.amazonaws.com", "/", expected_params(101, 50)]
+        end
+        it "fetches, parses and returns top ten sites" do
+          sites = top_sites.global(150).to_a
+          sites.size.must_equal 150
+          [ sites.first.rank, sites.last.rank ].must_equal [ 1, 150 ]
+        end
+      end
+      it "raises error if Count (or Start) are specified" do
+        ->{
+          top_sites.global(10, "Count" => 2)
+        }.must_raise PaginatingCollection::Error
       end
     end
 
     describe "#country" do
-      before do
-        expect_parameters = {
+      def expected_params(start, count)
+        {
           "Action" => "TopSites",
           "ResponseGroup" => "Country",
           "CountryCode" => "AU",
+          "Start" => start,
+          "Count" => count,
         }
-        client.expect :get, fixture("global.xml"),
-          ["ats.amazonaws.com", "/", expect_parameters]
+      end
+      before do
+        client.expect :get, fixture("global-top10.xml"),
+          ["ats.amazonaws.com", "/", expected_params(1, 10)]
       end
       it "fetches, parses and returns top sites for specified country" do
-        top_sites_match_fixture(top_sites.country("AU"))
+        sites = top_sites.country("AU", 10).to_a
+        sites.size.must_equal 10
+        sites.last.url.must_equal "twitter.com"
+      end
+      it "raises error if Start (or Count) are specified" do
+        ->{
+          top_sites.country("AU", 10, start: 2)
+        }.must_raise PaginatingCollection::Error
       end
     end
 
@@ -62,23 +106,6 @@ module Ralexa
         a.page_views.must_equal 1_074_000
         a.users.must_equal 1_148_000
       end
-    end
-
-    def top_sites_match_fixture(sites)
-      sites.to_a.size.must_equal 2
-      w, b = sites.to_a
-
-      w.url.must_equal "wikipedia.org"
-      w.rank.must_equal 6
-      w.reach.must_equal 143_000_000_000
-      w.page_views.must_equal 5_219_000_000
-      w.page_views_per_user.must_equal 3.88
-
-      b.url.must_equal "bbc.co.uk"
-      b.rank.must_equal 52
-      b.reach.must_equal 20_540_000_000
-      b.page_views.must_equal 898_500_000
-      b.page_views_per_user.must_equal 4.65
     end
 
   end

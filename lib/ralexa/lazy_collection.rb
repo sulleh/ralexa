@@ -14,12 +14,16 @@ module Ralexa
     end
 
     def each
-      parse(@client.get(@host, @path, @parameters)).each do |item|
+      parse(fetch(@parameters)).each do |item|
         yield item
       end
     end
 
     private
+
+    def fetch(parameters)
+      @client.get(@host, @path, parameters)
+    end
 
     def parse(response_body)
       @parser.call(
