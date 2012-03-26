@@ -1,6 +1,3 @@
-require "ralexa/abstract_service"
-require "ralexa/lazy_collection"
-
 module Ralexa
   class TopSites < AbstractService
 

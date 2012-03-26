@@ -1,7 +1,6 @@
 require_relative "spec_helper"
 
 require "addressable/uri"
-require "ralexa/uri_signer"
 
 module Ralexa
   describe UriSigner do

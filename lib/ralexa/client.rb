@@ -1,8 +1,6 @@
 require "addressable/uri"
 require "net/http"
 
-require "ralexa/uri_signer"
-
 module Ralexa
   class Client
 

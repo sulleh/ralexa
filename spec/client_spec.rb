@@ -1,7 +1,5 @@
 require_relative "spec_helper"
 
-require "ralexa/client"
-
 module Ralexa
   describe Client do
 

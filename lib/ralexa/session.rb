@@ -1,6 +1,3 @@
-require "ralexa/client"
-require "ralexa/top_sites"
-
 module Ralexa
   class Session
 

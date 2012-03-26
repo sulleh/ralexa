@@ -2,8 +2,6 @@ require "base64"
 require "digest/sha2"
 require "openssl"
 
-require "ralexa/canonicalized_query_string"
-
 module Ralexa
   class UriSigner
 

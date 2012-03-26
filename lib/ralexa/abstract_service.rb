@@ -1,5 +1,3 @@
-require "ralexa/lazy_collection"
-
 module Ralexa
   class AbstractService
 

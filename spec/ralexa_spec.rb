@@ -1,7 +1,5 @@
 require_relative "spec_helper"
 
-require "ralexa"
-
 describe Ralexa do
 
   describe ".session" do

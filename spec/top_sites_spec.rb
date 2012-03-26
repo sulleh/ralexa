@@ -1,7 +1,5 @@
 require_relative "spec_helper"
 
-require "ralexa/top_sites"
-
 module Ralexa
   describe TopSites do
 

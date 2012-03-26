@@ -2,8 +2,6 @@
 
 require_relative "spec_helper"
 
-require "ralexa/canonicalized_query_string"
-
 module Ralexa
   describe CanonicalizedQueryString do
 
