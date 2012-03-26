@@ -15,7 +15,10 @@ module Ralexa
     attr_writer :net_http
 
     def get(host, path, query_values)
-      net_http.get(signed_uri(host, path, query_values))
+      uri = signed_uri(host, path, query_values)
+      response = net_http.get_response(uri)
+      response.error! unless response.is_a?(Net::HTTPSuccess)
+      response.body
     end
 
     private
