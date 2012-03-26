@@ -1,33 +1,27 @@
-require "nokogiri"
+require "ralexa/abstract_xml_service"
 
 module Ralexa
-  class TopSites
+  class TopSites < AbstractXmlService
 
-    def initialize(client)
-      @client = client
+    def global(params = {})
+      top_sites_from_document(dispatch(
+        {"ResponseGroup" => "Country"},
+        params
+      ))
     end
 
-    def host; "ats.amazonaws.com" end
-    def path; "/" end
-
-    def global(parameters = {})
-      defaults = {"ResponseGroup" => "Country"}
-      top_sites_from_document(dispatch(defaults.merge(parameters)))
+    def country(code, params = {})
+      top_sites_from_document(dispatch(
+        {"ResponseGroup" => "Country", "CountryCode" => code.to_s.upcase},
+        params
+      ))
     end
 
-    def country(code, parameters = {})
-      defaults = {
-        "ResponseGroup" => "Country",
-        "CountryCode" => code.to_s.upcase,
-      }
-      top_sites_from_document(dispatch(defaults.merge(parameters)))
-    end
-
-    def list_countries(parameters = {})
-      defaults = {"ResponseGroup" => "ListCountries"}
-      doc = dispatch(defaults.merge(parameters))
-      xpath = "//TopSitesResult/Alexa/TopSites/Countries"
-      doc.at(xpath).element_children.map do |node|
+    def list_countries(params = {})
+      dispatch(
+        {"ResponseGroup" => "ListCountries"},
+        params
+      ).at("//TopSitesResult/Alexa/TopSites/Countries").elements.map do |node|
         Country.new(
           node.at("Name").text,
           node.at("Code").text,
@@ -40,17 +34,12 @@ module Ralexa
 
     private
 
-    attr_reader :client
-
-    def dispatch(options = {})
-      defaults = {"Action" => "TopSites"}
-      response = @client.get(host, path, defaults.merge(options))
-      Nokogiri::XML.parse(response).remove_namespaces!
-    end
+    def host; "ats.amazonaws.com" end
+    def path; "/" end
+    def default_params; {"Action" => "TopSites"} end
 
     def top_sites_from_document(document)
-      xpath = "//TopSites/Country/Sites"
-      document.at(xpath).element_children.map do |node|
+      document.at("//TopSites/Country/Sites").elements.map do |node|
         Site.new(
           node.at("DataUrl").text,
           node.at("Country/Rank").text.to_i,
