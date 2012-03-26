@@ -15,7 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Ralexa::VERSION
 
-  gem.add_runtime_dependency "addressable"
+  # addressable 2.2.7 introduces URI#hostname for Net::HTTP compatibility.
+  gem.add_runtime_dependency "addressable", ">= 2.2.7"
   gem.add_runtime_dependency "nokogiri"
 
   gem.add_development_dependency "minitest"
