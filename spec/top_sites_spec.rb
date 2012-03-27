@@ -29,7 +29,7 @@ module Ralexa
           g.url.must_equal "google.com"
           g.rank.must_equal 1
           g.reach.must_equal 501_800_000_000
-          g.page_views.must_equal 54_926_000_000
+          g.page_views_per_million.must_equal 54_926
           g.page_views_per_user.must_equal 11.63
         end
       end
