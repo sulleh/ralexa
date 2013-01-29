@@ -100,7 +100,7 @@ Status
   </tr>
   <tr>
     <td></td>
-    <td><em>Other</em</td>
+    <td>*</td>
     <td>Send a pull request!</td>
   </tr>
   <tr>
