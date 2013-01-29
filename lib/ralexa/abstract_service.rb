@@ -7,6 +7,17 @@ module Ralexa
 
     private
 
+    # a single result value
+    def result(*params, &parser)
+      Result.new(
+        @client,
+        host,
+        path,
+        merged_params(*params),
+        &parser
+      ).result
+    end
+
     # A lazy collection which fetches records on demand.
     def collection(*params, &parser)
       LazyCollection.new(

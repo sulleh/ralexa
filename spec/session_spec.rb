@@ -9,5 +9,11 @@ module Ralexa
       end
     end
 
+    describe ".url_info" do
+      it "returns a Ralexa::UrlInfo instance" do
+        Session.new("id", "secret").url_info.must_be_kind_of ::Ralexa::UrlInfo
+      end
+    end
+
   end
 end

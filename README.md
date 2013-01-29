@@ -58,6 +58,10 @@ session.top_sites.country("AU", 10).each do |s|
   puts "#{s.url} (#{s.page_views} pageviews)"
 end
 
+# rank of an individual site
+puts "Rank of Flippa.com"
+puts session.url_info.rank("http://flippa.com")
+
 puts "bam!"
 ```
 
@@ -73,46 +77,46 @@ Status
     <th>Supported</th>
   </tr>
   <tr>
-    <td rowspan="3">Alexa Top Sites</th>
-    <td>TopSites</th>
-    <td>Global</th>
-    <td>Yes</th>
+    <td rowspan="3">Alexa Top Sites</td>
+    <td>TopSites</td>
+    <td>Global</td>
+    <td>Yes</td>
   </tr>
   <tr>
-    <td></th>
-    <td>Country</th>
-    <td>Yes</th>
+    <td></td>
+    <td>Country</td>
+    <td>Yes</td>
   </tr>
   <tr>
-    <td></th>
-    <td>ListCountries</th>
-    <td>Yes</th>
+    <td></td>
+    <td>ListCountries</td>
+    <td>Yes</td>
   </tr>
   <tr>
-    <td rowspan="5">Alexa Web Information Services</th>
-    <td>UrlInfo</th>
-    <td>*</th>
-    <td>Send a pull request!</th>
+    <td rowspan="6">Alexa Web Information Services</td>
+    <td>UrlInfo</td>
+    <td>Rank<td>
+    <td>Yes</td>
   </tr>
   <tr>
-    <td>TrafficHistory</th>
-    <td>*</th>
-    <td>Send a pull request!</th>
+    <td>TrafficHistory</td>
+    <td>*</td>
+    <td>Send a pull request!</td>
   </tr>
   <tr>
-    <td>CategoryBrowse</th>
-    <td>*</th>
-    <td>Send a pull request!</th>
+    <td>CategoryBrowse</td>
+    <td>*</td>
+    <td>Send a pull request!</td>
   </tr>
   <tr>
-    <td>CategoryListings</th>
-    <td>*</th>
-    <td>Send a pull request!</th>
+    <td>CategoryListings</td>
+    <td>*</td>
+    <td>Send a pull request!</td>
   </tr>
   <tr>
-    <td>SitesLinkingIn</th>
-    <td>*</th>
-    <td>Send a pull request!</th>
+    <td>SitesLinkingIn</td>
+    <td>*</td>
+    <td>Send a pull request!</td>
   </tr>
 </table>
 

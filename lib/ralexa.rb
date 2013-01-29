@@ -2,11 +2,13 @@
   abstract_service
   canonicalized_query_string
   client
+  result
   lazy_collection
   paginating_collection
   paginator
   session
   top_sites
+  url_info
   uri_signer
   version
 }.each do |file|

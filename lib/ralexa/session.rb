@@ -11,5 +11,11 @@ module Ralexa
       TopSites.new(@client)
     end
 
+    # Provides a UrlInfo instance with an authenticated client.
+    # See: http://docs.amazonwebservices.com/AlexaWebInfoService/latest
+    def url_info
+      UrlInfo.new(@client)
+    end
+
   end
 end
