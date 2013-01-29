@@ -90,9 +90,9 @@ module Ralexa
       end
 
       it "fetches, parses and returns countries" do
-        countries = top_sites.list_countries
-        countries.to_a.size.must_equal 2
-        a, u = countries.to_a
+        countries = top_sites.list_countries.to_a
+        countries.size.must_equal 2
+        a, u = countries
 
         u.name.must_equal "United States"
         u.code.must_equal "US"
