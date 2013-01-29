@@ -7,6 +7,11 @@ module Ralexa
 
     private
 
+    # a single result value
+    def result(*params, &parser)
+      collection(*params, &parser).first
+    end
+
     # A lazy collection which fetches records on demand.
     def collection(*params, &parser)
       LazyCollection.new(

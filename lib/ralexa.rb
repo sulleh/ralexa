@@ -7,6 +7,7 @@
   paginator
   session
   top_sites
+  url_info
   uri_signer
   version
 }.each do |file|
