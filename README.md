@@ -93,10 +93,15 @@ Status
     <td>Yes</td>
   </tr>
   <tr>
-    <td rowspan="6">Alexa Web Information Services</td>
+    <td rowspan="7">Alexa Web Information Services</td>
     <td>UrlInfo</td>
     <td>Rank</td>
     <td>Yes</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><em>Other</em</td>
+    <td>Send a pull request!</td>
   </tr>
   <tr>
     <td>TrafficHistory</td>
