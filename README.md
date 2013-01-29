@@ -95,7 +95,7 @@ Status
   <tr>
     <td rowspan="6">Alexa Web Information Services</td>
     <td>UrlInfo</td>
-    <td>Rank<td>
+    <td>Rank</td>
     <td>Yes</td>
   </tr>
   <tr>
