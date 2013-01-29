@@ -9,10 +9,19 @@ module Ralexa
     describe "#rank" do
       def expected_params
         {
-          "Action" => "Rank",
-          "ResponseGroup" => "Rank"
+          "Action" => "UrlInfo",
+          "ResponseGroup" => "Rank",
+          "Url" => "google.com"
         }
       end
+      before do
+        client.expect :get, fixture("rank.xml"),
+          ["awis.amazonaws.com", "/", expected_params]
+      end
+      it "fetches, parses, and returns the site's rank" do
+        rank = url_info.rank("google.com")
+        rank.must_equal 1
+      end 
     end
 
   end

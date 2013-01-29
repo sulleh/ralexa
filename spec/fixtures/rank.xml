@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<aws:UrlInfoResponse xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/"><aws:Response xmlns:aws="http://awis.amazonaws.com/doc/2005-07-11"><aws:OperationRequest><aws:RequestId>bb3746dc-fe13-aae7-8058-a98caf283873</aws:RequestId></aws:OperationRequest><aws:UrlInfoResult><aws:Alexa>
+
+        <aws:TrafficData>
+          <aws:DataUrl type="canonical">google.com/</aws:DataUrl>
+          <aws:Rank>1</aws:Rank>
+        </aws:TrafficData>
+</aws:Alexa></aws:UrlInfoResult><aws:ResponseStatus xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/"><aws:StatusCode>Success</aws:StatusCode></aws:ResponseStatus></aws:Response></aws:UrlInfoResponse>
