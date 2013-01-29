@@ -9,7 +9,13 @@ module Ralexa
 
     # a single result value
     def result(*params, &parser)
-      collection(*params, &parser).first
+      Result.new(
+        @client,
+        host,
+        path,
+        merged_params(*params),
+        &parser
+      ).result
     end
 
     # A lazy collection which fetches records on demand.

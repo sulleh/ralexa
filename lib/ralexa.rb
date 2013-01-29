@@ -2,6 +2,7 @@
   abstract_service
   canonicalized_query_string
   client
+  result
   lazy_collection
   paginating_collection
   paginator
