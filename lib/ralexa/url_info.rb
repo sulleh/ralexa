@@ -4,10 +4,10 @@ module Ralexa
     # The site's Alexa rank
     def rank(url, params = {})
       result({"ResponseGroup" => "Rank", "Url" => url}, params) do |document|
-        document.at("//UrlInfoResult/Alexa/TrafficData/Rank").text.to_i
+        document.at("//UrlInfoResult/Alexa/TrafficData/Rank") &&
+          document.at("//UrlInfoResult/Alexa/TrafficData/Rank").text.to_i
       end 
     end
-
 
     private
 
