@@ -58,9 +58,9 @@ session.top_sites.country("AU", 10).each do |s|
   puts "#{s.url} (#{s.page_views} pageviews)"
 end
 
-# rank of an individual site
-puts "Rank of Flippa.com"
-puts session.url_info.rank("http://flippa.com")
+# url info for an individual site
+puts "Url info of Flippa.com"
+puts session.url_info.get("http://flippa.com")
 
 puts "bam!"
 ```
@@ -95,15 +95,9 @@ Status
   <tr>
     <td rowspan="7">Alexa Web Information Services</td>
     <td>UrlInfo</td>
-    <td>Rank</td>
+    <td>Get</td>
     <td>Yes</td>
   </tr>
-  <tr>
-    <td></td>
-    <td>*</td>
-    <td>Send a pull request!</td>
-  </tr>
-  <tr>
     <td>TrafficHistory</td>
     <td>*</td>
     <td>Send a pull request!</td>

@@ -1,8 +1,241 @@
 <?xml version="1.0"?>
-<aws:UrlInfoResponse xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/"><aws:Response xmlns:aws="http://awis.amazonaws.com/doc/2005-07-11"><aws:OperationRequest><aws:RequestId>bb3746dc-fe13-aae7-8058-a98caf283873</aws:RequestId></aws:OperationRequest><aws:UrlInfoResult><aws:Alexa>
-
+<aws:UrlInfoResponse xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/">
+  <aws:Response xmlns:aws="http://awis.amazonaws.com/doc/2005-07-11">
+    <aws:OperationRequest>
+      <aws:RequestId>86b12d15-46f7-4c31-937e-a5254d2aa306</aws:RequestId>
+    </aws:OperationRequest>
+    <aws:UrlInfoResult>
+      <aws:Alexa>
+        <aws:ContentData>
+          <aws:DataUrl type="canonical">flippa.com</aws:DataUrl>
+          <aws:SiteData>
+            <aws:Title>Flippa</aws:Title>
+            <aws:Description>The number one marketplace for buying and selling websites.</aws:Description>
+          </aws:SiteData>
+          <aws:Speed>
+            <aws:MedianLoadTime>1930</aws:MedianLoadTime>
+            <aws:Percentile>42</aws:Percentile>
+          </aws:Speed>
+          <aws:AdultContent/>
+          <aws:Language>
+            <aws:Locale>en</aws:Locale>
+            <aws:Encoding>us-ascii</aws:Encoding>
+          </aws:Language>
+          <aws:LinksInCount>1788</aws:LinksInCount>
+          <aws:Keywords/>
+          <aws:OwnedDomains/>
+        </aws:ContentData>
+        <aws:Related>
+          <aws:DataUrl type="canonical">flippa.com</aws:DataUrl>
+          <aws:RelatedLinks>
+            <aws:RelatedLink>
+              <aws:DataUrl type="canonical">uservoice.com/</aws:DataUrl>
+              <aws:NavigableUrl>http://uservoice.com/</aws:NavigableUrl>
+              <aws:Title>UserVoice &amp;#187; Customer Feedback 2.0</aws:Title>
+            </aws:RelatedLink>
+            <aws:RelatedLink>
+              <aws:DataUrl type="canonical">urltrends.com/</aws:DataUrl>
+              <aws:NavigableUrl>http://urltrends.com/</aws:NavigableUrl>
+              <aws:Title>Free SEO Reports, Search Engine Ranking Trends and Competitive Research by UrlTr</aws:Title>
+            </aws:RelatedLink>
+            <aws:RelatedLink>
+              <aws:DataUrl type="canonical">tutorial9.net/</aws:DataUrl>
+              <aws:NavigableUrl>http://tutorial9.net/</aws:NavigableUrl>
+              <aws:Title>Tutorial9 - Tutorial Bliss.</aws:Title>
+            </aws:RelatedLink>
+            <aws:RelatedLink>
+              <aws:DataUrl type="canonical">sitepoint.com/</aws:DataUrl>
+              <aws:NavigableUrl>http://sitepoint.com/</aws:NavigableUrl>
+              <aws:Title>SitePoint</aws:Title>
+            </aws:RelatedLink>
+            <aws:RelatedLink>
+              <aws:DataUrl type="canonical">preview-online.com/</aws:DataUrl>
+              <aws:NavigableUrl>http://preview-online.com/</aws:NavigableUrl>
+              <aws:Title>Preview-Online.Com</aws:Title>
+            </aws:RelatedLink>
+            <aws:RelatedLink>
+              <aws:DataUrl type="canonical">copyscape.com/</aws:DataUrl>
+              <aws:NavigableUrl>http://copyscape.com/</aws:NavigableUrl>
+              <aws:Title>Copyscape</aws:Title>
+            </aws:RelatedLink>
+            <aws:RelatedLink>
+              <aws:DataUrl type="canonical">700megs.com/</aws:DataUrl>
+              <aws:NavigableUrl>http://700megs.com/</aws:NavigableUrl>
+              <aws:Title>700 Megs.com - Free website hosting. Create your own website with a control pane</aws:Title>
+            </aws:RelatedLink>
+          </aws:RelatedLinks>
+        </aws:Related>
         <aws:TrafficData>
-          <aws:DataUrl type="canonical">google.com/</aws:DataUrl>
-          <aws:Rank>1</aws:Rank>
+          <aws:DataUrl type="canonical">flippa.com</aws:DataUrl>
+          <aws:Rank>932</aws:Rank>
+          <aws:UsageStatistics>
+            <aws:UsageStatistic>
+              <aws:TimeRange>
+                <aws:Months>3</aws:Months>
+              </aws:TimeRange>
+              <aws:Rank>
+                <aws:Value>932</aws:Value>
+                <aws:Delta>-695</aws:Delta>
+              </aws:Rank>
+              <aws:Reach>
+                <aws:Rank>
+                  <aws:Value>1230</aws:Value>
+                  <aws:Delta>-868</aws:Delta>
+                </aws:Rank>
+                <aws:PerMillion>
+                  <aws:Value>1,093</aws:Value>
+                  <aws:Delta>+90%</aws:Delta>
+                </aws:PerMillion>
+              </aws:Reach>
+              <aws:PageViews>
+                <aws:PerMillion>
+                  <aws:Value>98.5</aws:Value>
+                  <aws:Delta>+92.9%</aws:Delta>
+                </aws:PerMillion>
+                <aws:Rank>
+                  <aws:Value>579</aws:Value>
+                  <aws:Delta>-406</aws:Delta>
+                </aws:Rank>
+                <aws:PerUser>
+                  <aws:Value>9.56</aws:Value>
+                  <aws:Delta>+1.8%</aws:Delta>
+                </aws:PerUser>
+              </aws:PageViews>
+            </aws:UsageStatistic>
+            <aws:UsageStatistic>
+              <aws:TimeRange>
+                <aws:Months>1</aws:Months>
+              </aws:TimeRange>
+              <aws:Rank>
+                <aws:Value>914</aws:Value>
+                <aws:Delta>-18</aws:Delta>
+              </aws:Rank>
+              <aws:Reach>
+                <aws:Rank>
+                  <aws:Value>1203</aws:Value>
+                  <aws:Delta>-37</aws:Delta>
+                </aws:Rank>
+                <aws:PerMillion>
+                  <aws:Value>1,114</aws:Value>
+                  <aws:Delta>+3%</aws:Delta>
+                </aws:PerMillion>
+              </aws:Reach>
+              <aws:PageViews>
+                <aws:PerMillion>
+                  <aws:Value>97</aws:Value>
+                  <aws:Delta>-2.53%</aws:Delta>
+                </aws:PerMillion>
+                <aws:Rank>
+                  <aws:Value>586</aws:Value>
+                  <aws:Delta>4</aws:Delta>
+                </aws:Rank>
+                <aws:PerUser>
+                  <aws:Value>9.21</aws:Value>
+                  <aws:Delta>-5.25%</aws:Delta>
+                </aws:PerUser>
+              </aws:PageViews>
+            </aws:UsageStatistic>
+            <aws:UsageStatistic>
+              <aws:TimeRange>
+                <aws:Days>7</aws:Days>
+              </aws:TimeRange>
+              <aws:Rank>
+                <aws:Value>824</aws:Value>
+                <aws:Delta>-216</aws:Delta>
+              </aws:Rank>
+              <aws:Reach>
+                <aws:Rank>
+                  <aws:Value>1083</aws:Value>
+                  <aws:Delta>-263</aws:Delta>
+                </aws:Rank>
+                <aws:PerMillion>
+                  <aws:Value>1,230</aws:Value>
+                  <aws:Delta>+22%</aws:Delta>
+                </aws:PerMillion>
+              </aws:Reach>
+              <aws:PageViews>
+                <aws:PerMillion>
+                  <aws:Value>104.4</aws:Value>
+                  <aws:Delta>+21.0%</aws:Delta>
+                </aws:PerMillion>
+                <aws:Rank>
+                  <aws:Value>549</aws:Value>
+                  <aws:Delta>-131</aws:Delta>
+                </aws:Rank>
+                <aws:PerUser>
+                  <aws:Value>9.0</aws:Value>
+                  <aws:Delta>-0.77%</aws:Delta>
+                </aws:PerUser>
+              </aws:PageViews>
+            </aws:UsageStatistic>
+            <aws:UsageStatistic>
+              <aws:TimeRange>
+                <aws:Days>1</aws:Days>
+              </aws:TimeRange>
+              <aws:Rank>
+                <aws:Value>568</aws:Value>
+                <aws:Delta>-292</aws:Delta>
+              </aws:Rank>
+              <aws:Reach>
+                <aws:Rank>
+                  <aws:Value>723</aws:Value>
+                  <aws:Delta>-401</aws:Delta>
+                </aws:Rank>
+                <aws:PerMillion>
+                  <aws:Value>1,660</aws:Value>
+                  <aws:Delta>+40%</aws:Delta>
+                </aws:PerMillion>
+              </aws:Reach>
+              <aws:PageViews>
+                <aws:PerMillion>
+                  <aws:Value>153</aws:Value>
+                  <aws:Delta>+50%</aws:Delta>
+                </aws:PerMillion>
+                <aws:Rank>
+                  <aws:Value>408</aws:Value>
+                  <aws:Delta>-208</aws:Delta>
+                </aws:Rank>
+                <aws:PerUser>
+                  <aws:Value>8.9</aws:Value>
+                  <aws:Delta>+7%</aws:Delta>
+                </aws:PerUser>
+              </aws:PageViews>
+            </aws:UsageStatistic>
+          </aws:UsageStatistics>
+          <aws:ContributingSubdomains>
+            <aws:ContributingSubdomain>
+              <aws:DataUrl>flippa.com</aws:DataUrl>
+              <aws:TimeRange>
+                <aws:Months>1</aws:Months>
+              </aws:TimeRange>
+              <aws:Reach>
+                <aws:Percentage>99.93%</aws:Percentage>
+              </aws:Reach>
+              <aws:PageViews>
+                <aws:Percentage>99.39%</aws:Percentage>
+                <aws:PerUser>9.16</aws:PerUser>
+              </aws:PageViews>
+            </aws:ContributingSubdomain>
+            <aws:ContributingSubdomain>
+              <aws:DataUrl>support.flippa.com</aws:DataUrl>
+              <aws:TimeRange>
+                <aws:Months>1</aws:Months>
+              </aws:TimeRange>
+              <aws:Reach>
+                <aws:Percentage>2.81%</aws:Percentage>
+              </aws:Reach>
+              <aws:PageViews>
+                <aws:Percentage>0.61%</aws:Percentage>
+                <aws:PerUser>1.98</aws:PerUser>
+              </aws:PageViews>
+            </aws:ContributingSubdomain>
+          </aws:ContributingSubdomains>
         </aws:TrafficData>
-</aws:Alexa></aws:UrlInfoResult><aws:ResponseStatus xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/"><aws:StatusCode>Success</aws:StatusCode></aws:ResponseStatus></aws:Response></aws:UrlInfoResponse>
+      </aws:Alexa>
+    </aws:UrlInfoResult>
+    <aws:ResponseStatus xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/">
+      <aws:StatusCode>Success
+      </aws:StatusCode>
+    </aws:ResponseStatus>
+  </aws:Response>
+</aws:UrlInfoResponse>
