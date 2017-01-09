@@ -3,7 +3,7 @@ Ralexa
 
 Ruby client for Amazon Alexa APIs.
 
-These include [Alexa Top Sites][1] and [Alexa Web Information Service][2].
+These include [Alexa Top Sites][2] and [Alexa Web Information Service][1].
 
 HTTP transport thanks to `Net::HTTP`,
 with a little help from [addressable][3].
