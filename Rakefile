@@ -11,3 +11,7 @@ Rake::TestTask.new do |t|
   # ENV["TESTOPTS"] = "-v"
   t.pattern = "spec/*_spec.rb"
 end
+
+task :console do
+  exec "irb -r ralexa -I ./lib"
+end

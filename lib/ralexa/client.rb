@@ -24,7 +24,7 @@ module Ralexa
     def signed_uri(host, path, query_values)
       uri_signer.sign_uri(
         Addressable::URI.new(
-          scheme: "http",
+          scheme: "https",
           host: host,
           path: path,
           query_values: query_values
