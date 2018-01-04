@@ -17,6 +17,18 @@ Thorough test coverage provided by `MiniTest::Spec`.
 [3]: https://github.com/sporkmonger/addressable
 [4]: http://nokogiri.org/
 
+Deprecation Notice
+------------------
+
+AWS introduced IAM credentials support for accessing AWIS and Alexa Top Sites.
+They deprecated the use of root account credentials and will stop working on
+January 31, 2018.
+
+This gem doesn't support using IAM credentials and we're no longer
+maintaining this gem.
+
+If you're up for the challenge and very keen to keep this up to date, we're
+looking for someone willing to maintain.
 
 Installation
 ------------
