@@ -52,6 +52,7 @@ module Ralexa
         document.at("//TopSites/Country/Sites").elements.map do |node|
           Site.new(
             node.at("DataUrl").text,
+            node.at("Global/Rank").text.to_i,
             node.at("Country/Rank").text.to_i,
             node.at("Country/Reach/PerMillion").text.to_i * 1_000_000,
             node.at("Country/PageViews/PerMillion").text.to_i,
@@ -62,6 +63,6 @@ module Ralexa
     end
 
     Country = Struct.new(:name, :code, :total_sites, :page_views, :users)
-    Site = Struct.new(:url, :rank, :reach, :page_views_per_million, :page_views_per_user)
+    Site = Struct.new(:url, :global_rank, :rank, :reach, :page_views_per_million, :page_views_per_user)
   end
 end
