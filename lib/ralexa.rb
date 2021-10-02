@@ -19,8 +19,8 @@ module Ralexa
 
   # An authenticated Session instance.
   # Holds credentials, provides access to service instances.
-  def self.session(access_key_id, secret_access_key)
-    Session.new(access_key_id, secret_access_key)
+  def self.session(api_key)
+    Session.new(api_key)
   end
 
 end

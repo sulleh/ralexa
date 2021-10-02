@@ -35,8 +35,8 @@ module Ralexa
 
     attr_accessor :document
 
-    def host; "awis.amazonaws.com" end
-    def path; "/" end
+    def host; "awis.api.alexa.com" end
+    def path; "/api" end
     def default_params; {"Action" => "UrlInfo"}; end
 
     def speed_median_load_time

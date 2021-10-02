@@ -1,8 +1,8 @@
 module Ralexa
   class Session
 
-    def initialize(access_key_id, secret_access_key)
-      @client = Client.new(access_key_id, secret_access_key)
+    def initialize(api_key)
+      @client = Client.new(api_key)
     end
 
     # Provides a TopSites instance with an authenticated client.

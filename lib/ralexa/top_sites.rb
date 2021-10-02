@@ -43,8 +43,8 @@ module Ralexa
 
     private
 
-    def host; "ats.amazonaws.com" end
-    def path; "/" end
+    def host; "ats.api.alexa.com" end
+    def path; "/api" end
     def default_params; {"Action" => "TopSites"} end
 
     def top_sites_parser

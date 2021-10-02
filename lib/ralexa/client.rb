@@ -4,36 +4,39 @@ require "net/http"
 module Ralexa
   class Client
 
-    def initialize(access_key_id, secret_access_key)
-      @access_key_id = access_key_id
-      @secret_access_key = secret_access_key
+    def initialize(api_key)
+      @api_key = api_key
     end
 
     # Dependency injectors.
     attr_writer :net_http
 
     def get(host, path, query_values)
-      uri = signed_uri(host, path, query_values)
-      response = net_http.get_response(uri)
+      uri = request_uri(host, path, query_values)
+      response = request(uri, { 'x-api-key' => @api_key })
       response.error! unless response.is_a?(Net::HTTPSuccess)
       response.body
     end
 
     private
 
-    def signed_uri(host, path, query_values)
-      uri_signer.sign_uri(
-        Addressable::URI.new(
-          scheme: "https",
-          host: host,
-          path: path,
-          query_values: query_values
-        )
+    def request_uri(host, path, query_values)
+      Addressable::URI.new(
+        scheme: "https",
+        host: host,
+        path: path,
+        query_values: query_values
       )
     end
 
-    def uri_signer
-      UriSigner.new(@access_key_id, @secret_access_key)
+    def request(uri, headers)
+      req = net_http::Get.new(uri)
+      headers.each do |key, value|
+        req[key] = value
+      end
+      net_http.start(uri.hostname, uri.port, use_ssl: true) do |http|
+        http.request(req)
+      end
     end
 
     ##
